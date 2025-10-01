@@ -1,0 +1,238 @@
+/* ---------------------------------
+  1. FONT DEFINITIONS
+--------------------------------- */
+@font-face {
+  font-family: 'NikeFont'; 
+  src: url('fonts/Nike.woff') format('woff'); 
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'BarcoFont'; 
+  src: url('fonts/barco.woff') format('woff'); 
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+/* ---------------------------------
+  2. GENERAL STYLING
+--------------------------------- */
+html {
+    scroll-behavior: smooth; /* Enables smooth scrolling for anchor links */
+}
+
+body {
+    background-color: #000000;
+    color: #ffffff; /* Default text color to white for better readability */
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevents horizontal scrollbar */
+}
+
+.landing {
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    box-sizing: border-box;
+    color: #FF3562; /* Keep the brand color for the landing elements */
+}
+
+
+/* ---------------------------------
+  3. NAVIGATION BAR
+--------------------------------- */
+.navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 40px;
+    box-sizing: border-box;
+    z-index: 10;
+}
+
+.nav-links a, .social-links a {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover, .social-links a:hover {
+    color: #FF3562;
+}
+
+
+/* ---------------------------------
+  4. MAIN TITLE
+--------------------------------- */
+.main-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    text-align: center;
+}
+
+.main-title h1 {
+    font-family: 'NikeFont', sans-serif;
+    font-size: 28.5vw;
+    margin: 0;
+    text-transform: uppercase;
+    white-space: nowrap;
+    letter-spacing: 0.7vw;
+}
+
+
+/* ---------------------------------
+  5. SCROLL ARROW
+--------------------------------- */
+.scroll-arrow {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+    color: #FF3562;
+    text-decoration: none;
+}
+
+
+/* ---------------------------------
+  6. GALLERY SECTION
+--------------------------------- */
+.gallery-section {
+    padding: 100px 40px; /* Aligns content with nav margins */
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05); /* Subtle zoom on hover */
+}
+
+.gallery-item .overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    color: white;
+    padding: 40px 20px 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.gallery-item:hover .overlay {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.overlay h3 {
+    margin: 0;
+    font-family: 'NikeFont', sans-serif;
+    font-size: 24px;
+    letter-spacing: 2px;
+    color: #FF3562;
+}
+
+
+/* ---------------------------------
+  7. ABOUT & CONTACT SECTIONS
+--------------------------------- */
+.about-section, .contact-section {
+    padding: 100px 40px;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-section h2, .contact-section h2 {
+    font-family: 'NikeFont', sans-serif;
+    font-size: 48px;
+    letter-spacing: 3px;
+    color: #FF3562;
+    margin-bottom: 30px;
+}
+
+.about-section p, .contact-section p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #cccccc;
+}
+
+.email-link {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 22px;
+    color: #FF3562;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom-color 0.3s ease;
+}
+
+.email-link:hover {
+    border-bottom-color: #FF3562;
+}
+
+
+/* ---------------------------------
+  8. FOOTER
+--------------------------------- */
+.site-footer {
+    padding: 40px;
+    text-align: center;
+    font-size: 12px;
+    color: #888888;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+
+/* ---------------------------------
+  9. REVEAL ANIMATION
+--------------------------------- */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered animation for gallery items */
+.gallery-item.reveal:nth-child(2) { transition-delay: 0.1s; }
+.gallery-item.reveal:nth-child(3) { transition-delay: 0.2s; }
+.gallery-item.reveal:nth-child(4) { transition-delay: 0.3s; }
+.gallery-item.reveal:nth-child(5) { transition-delay: 0.4s; }
+.gallery-item.reveal:nth-child(6) { transition-delay: 0.5s; }
+

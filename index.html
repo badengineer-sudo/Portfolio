@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bad Engineer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- SECTION 1: LANDING PAGE -->
+    <header class="landing">
+
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <div class="nav-links">
+                <a href="#gallery">Gallery</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="social-links">
+                <a href="https://www.instagram.com/badengineerdraws/" target="_blank">IG</a>
+                <a href="https://www.youtube.com/@Bad_Engineer-v7e" target="_blank">YT</a>
+            </div>
+        </nav>
+
+        <!-- Main Title -->
+        <div class="main-title">
+            <h1>BAD ENGINEER</h1>
+            <h4>Atul Singh</h4>
+
+        </div>
+
+        <!-- Scroll Down Arrow -->
+        <a href="#gallery" class="scroll-arrow">
+            <span>&darr;</span>
+        </a>
+
+    </header>
+
+    <!-- MAIN CONTENT WRAPPER -->
+    <main>
+
+        <!-- SECTION 2: GALLERY -->
+        <section id="gallery" class="gallery-section">
+            <div class="gallery-grid">
+                <!-- Your Artwork -->
+                <div class="gallery-item reveal">
+                    <img src="Artworks/2024-04-27_04-28-11_UTC.jpg" alt="Artwork by Bad Engineer">
+                    <div class="overlay"><h3>2025</h3></div>
+                </div>
+                <div class="gallery-item reveal">
+                    <img src="Artworks/2024-05-04_15-07-56_UTC_1.jpg" alt="Artwork by Bad Engineer">
+                    <div class="overlay"><h3>2025</h3></div>
+                </div>
+                <div class="gallery-item reveal">
+                    <img src="Artworks/2024-06-29_13-09-41_UTC.jpg" alt="Artwork by Bad Engineer">
+                    <div class="overlay"><h3>2025</h3></div>
+                </div>
+                <div class="gallery-item reveal">
+                    <img src="Artworks/2024-06-30_15-28-49_UTC_1.jpg" alt="Artwork by Bad Engineer">
+                    <div class="overlay"><h3>2025</h3></div>
+                </div>
+                <div class="gallery-item reveal">
+                    <img src="Artworks/2024-07-11_19-25-45_UTC.jpg" alt="Artwork by Bad Engineer">
+                    <div class="overlay"><h3>2025</h3></div>
+                </div>
+                <div class="gallery-item reveal">
+                    <img src="Artworks/2024-07-21_18-19-59_UTC_1.jpg" alt="Artwork by Bad Engineer">
+                    <div class="overlay"><h3>2025</h3></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: ABOUT -->
+        <section id="about" class="about-section reveal">
+            <h2>ABOUT THE ENGINEER</h2>
+            <p>Atul Singh, an engineer by degree and artist by heart. Someone to whom art is as instinctive as breathing.</p>
+        </section>
+
+        <!-- SECTION 4: CONTACT -->
+        <section id="contact" class="contact-section reveal">
+            <h2>GET IN TOUCH</h2>
+            <p>Open for commissions, collaborations, or just a friendly chat.</p>
+            <a href="mailto:a.very.bad.engineer@gmail.com" class="email-link">a.very.bad.engineer@gmail.com</a>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <p>&copy; 2025 BAD ENGINEER. ALL RIGHTS RESERVED.</p>
+    </footer>
+
+    <script>
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Buttery smooth reveal animation on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1 // Trigger when 10% of the item is visible
+        });
+
+        const revealElements = document.querySelectorAll('.reveal');
+        revealElements.forEach((el) => observer.observe(el));
+    </script>
+    
+</body>
+</html>
+
